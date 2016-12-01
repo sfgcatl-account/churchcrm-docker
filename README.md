@@ -16,9 +16,9 @@ You can start MariaDB first with the following command. Make sure to **change th
 
 Then start the ChurchCRM container:
 
-``docker run --name churchcrm -p 80:80 -p 443:443 --link crm-mariadb -d jasonaskipper/churchcrm``
+``docker run --name churchcrm -p 80:80 -p 443:443 --link crm-mariadb -d churchcrm/crm``
 
-<img src="https://github.com/jaskipper/churchcrm/blob/master/include/Installation.jpg" width="600">
+<img src="https://github.com/ChurchCRM/Docker/blob/master/include/Installation.jpg" width="600">
 
 ### Building with Docker-Compose
 
@@ -28,4 +28,4 @@ You can also download the Github repository and run ``docker-compose build`` and
 
 Once up and running, go to your website and fill in the database username and password that you set up in the commands above or in the docker-compose file. Use **``crm-mariadb``** as the **database host**. Once set up you can use the default username of ``admin`` and password of ``changeme`` to log in.
 
-<img src="https://github.com/jaskipper/churchcrm/blob/master/include/Login.jpg" width="400">
+<img src="https://github.com/ChurchCRM/Docker/blob/master/include/Login.jpg" width="400">
