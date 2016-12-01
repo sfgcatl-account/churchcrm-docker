@@ -24,4 +24,4 @@ You can also download the Github repository and run ``docker-compose build`` and
 
 ## Up and Running with ChurchCRM
 
-Once up and running, go to your website and fill in the database username and password that you set up in the commands above or in the docker-compose file. Use ``crm-mariadb`` as the database host. Once set up you can use the default username of ``admin`` and password of ``changeme`` to log in.
+Once up and running, go to your website and fill in the database username and password that you set up in the commands above or in the docker-compose file. Use **``crm-mariadb``** as the **database host**. Once set up you can use the default username of ``admin`` and password of ``changeme`` to log in.
