@@ -12,7 +12,7 @@ Example:
 
 You can start MariaDB first with the following command. Make sure to **change the passwords** to something more secure.
 
-``docker run --name crm-mariadb -e MARIADB_ROOT_PASSWORD=my-secret-password -e MARIADB_DATABASE=churchcrm -e MARIADB_USER=churchcrm -e MARIADB_PASSWORD=my-secret-pw -p 3306:3306 -d nimmis/alpine-mariadb``
+``docker run --name crm-mariadb -e MARIADB_ROOT_PASSWORD=my-secret-password -e MARIADB_DATABASE=churchcrm -e MARIADB_USER=churchcrm -e MARIADB_PASSWORD=my-secret-pw -d nimmis/alpine-mariadb``
 
 Then start the ChurchCRM container:
 
