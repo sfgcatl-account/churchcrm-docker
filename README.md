@@ -1,6 +1,6 @@
 #Docker ChurchCRM
 
-This is the Docker Installation of ChurchCRM. It is installed on Alpine Linux and PHP7. It uses the Latest MariaDB.
+This is the Docker Installation of ChurchCRM. This image is currently using the latest release of ChurchCRM. It is installed on Alpine Linux, Apache, PHP7 & the Latest MariaDB.
 
 ##How To Use
 
