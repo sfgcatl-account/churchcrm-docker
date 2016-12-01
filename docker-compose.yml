@@ -8,13 +8,13 @@ services:
     links:
       - crm-mariadb
   crm-mariadb:
-    image: mariadb:latest
+    image: nimmis/alpine-mariadb
     volumes:
       - /var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: my-secret-pw
-      MYSQL_DATABASE: churchcrm
-      MYSQL_USER: churchcrm
-      MYSQL_PASSWORD: my-secret-pw
+      MARIADB_ROOT_PASSWORD: my-secret-pw
+      MARIADB_DATABASE: churchcrm
+      MARIADB_USER: churchcrm
+      MARIADB_PASSWORD: my-secret-pw
     ports:
       - "3306:3306"

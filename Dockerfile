@@ -49,7 +49,8 @@ RUN echo "@testing http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/
 
 COPY include/httpd.conf /etc/apache2
 COPY include/60-churchcrm /etc/run_always
-COPY include/Config.php.example /web/churchcrm
+# Auto-logging for now
+COPY include/Config.php.example /web/churchcrm/Config.php.example
 
 RUN chmod 755 /etc/run_always/60-churchcrm
 

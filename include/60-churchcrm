@@ -19,6 +19,7 @@ if [ ! -d /web/html/ChurchCRM ]; then
   cp -Rp . /web/html
   cd ..
   rm -R *
-  cp -f /web/churchcrm/Config.php /web/html/Include/Config.php
+  # setting up auto logging for now
+  cp -f /web/churchcrm/Config.php.example /web/html/Include/Config.php.example
   chown -R apache.www-data /web/html
 fi

@@ -1,16 +1,18 @@
 # Docker ChurchCRM
 
-This is the Docker Installation of ChurchCRM. This image is currently using the latest release of ChurchCRM. It is installed on Alpine Linux, Apache, PHP7 & is using the Latest MariaDB in a separate container.
+This is the Docker Installation of ChurchCRM. This image is currently using the latest release of ChurchCRM. It is installed on Alpine Linux, Apache, PHP7 & is using MariaDB in a separate Alpine container.
 
 ## How To Use
 
-There are two ways to get this up and running. Starting the container through ``docker run`` or building it with the docker-compose.yml file.
+There are two ways to get this up and running. Starting the container through **``docker run``** or building it with the **``docker-compose.yml``** file.
 
 ### Starting the Container
 
-Start MariaDB first with the following command. Make sure to change the passwords to something more secure.
+Example:
 
-``docker run --name crm-mariadb -e MYSQL_ROOT_PASSWORD=my-secret-password -e MYSQL_DATABASE=churchcrm -e MYSQL_USER=churchcrm -e MYSQL_PASSWORD=my-secret-pw -p 3306:3306 -d mariadb:latest``
+You can start MariaDB first with the following command. Make sure to **change the passwords** to something more secure.
+
+``docker run --name crm-mariadb -e MARIADB_ROOT_PASSWORD=my-secret-password -e MARIADB_DATABASE=churchcrm -e MARIADB_USER=churchcrm -e MARIADB_PASSWORD=my-secret-pw -p 3306:3306 -d mariadb:latest``
 
 Then start the ChurchCRM container:
 
@@ -18,7 +20,7 @@ Then start the ChurchCRM container:
 
 ### Building with Docker-Compose
 
-You can also download the repository and run ``docker-compose build`` and ``docker-compose up`` from the project folder. Change Passwords, ports, etc. in that file before building.
+You can also download the Github repository and run ``docker-compose build`` and ``docker-compose up`` from the project folder. **Change Passwords, Ports, etc. in that file before building**.
 
 ## Up and Running with ChurchCRM
 
