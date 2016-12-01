@@ -42,8 +42,6 @@ RUN echo "@testing http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/
             php7-phar@community \
             php7-gettext@community && \
 
-    # waiting for module to be release on alpine
-    # apk add php7-imagick@testing
     ln -s /usr/bin/php7 /usr/bin/php && \
     cd /tmp && curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer && \
     rm -rf /var/cache/apk/* && \
