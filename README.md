@@ -18,7 +18,7 @@ Then Run the ChurchCRM image:
 
 ##Docker-Compose
 
-You can also download the repository and download run ``docker-compose build`` and ``docker-compose up`` from the project folder.
+You can also download the repository and run ``docker-compose build`` and ``docker-compose up`` from the project folder.
 
 ##Running ChurchCRM
 
