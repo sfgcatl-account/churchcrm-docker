@@ -1,6 +1,6 @@
 #Docker ChurchCRM
 
-This is the Docker Installation of ChurchCRM. It is installed on Alpine Linux and PHP7. It uses the Latest MariaDB. 
+This is the Docker Installation of ChurchCRM. It is installed on Alpine Linux and PHP7. It uses the Latest MariaDB.
 
 ##How To Use
 
@@ -22,4 +22,4 @@ You can also download the repository and download run ``docker-compose build`` a
 
 ##Running ChurchCRM
 
-Go to your website and fill in the database usernames and passwords that you set up in the commands above. use ##``crm-mariadb``## as the database host. Once set up you can use the default username of ``admin`` and password of ``changeme`` to log in.
+Go to your website and fill in the database username and password that you set up in the commands above. use ``crm-mariadb`` as the database host. Once set up you can use the default username of ``admin`` and password of ``changeme`` to log in.
