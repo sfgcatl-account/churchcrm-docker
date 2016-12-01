@@ -16,7 +16,7 @@ Start MariaDB first with the following command. Make sure to change the password
 
 ``docker run --name crm-mariadb -e MYSQL_ROOT_PASSWORD=my-secret-password -e MYSQL_DATABASE=churchcrm -e MYSQL_USER=churchcrm -e MYSQL_PASSWORD=my-secret-pw -p 3306:3306 -d mariadb:latest``
 
-Then starte the ChurchCRM container:
+Then start the ChurchCRM container:
 
 ``docker run --name churchcrm -p 80:80 -p 443:443 --link crm-mariadb -d jasonaskipper/churchcrm``
 
