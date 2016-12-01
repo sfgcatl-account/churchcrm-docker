@@ -8,10 +8,6 @@ There are two ways to get this up and running. Starting the container through ``
 
 ### Starting the Container
 
-Pull the latest image:
-
-``docker pull jasonaskipper/churchcrm``
-
 Start MariaDB first with the following command. Make sure to change the passwords to something more secure.
 
 ``docker run --name crm-mariadb -e MYSQL_ROOT_PASSWORD=my-secret-password -e MYSQL_DATABASE=churchcrm -e MYSQL_USER=churchcrm -e MYSQL_PASSWORD=my-secret-pw -p 3306:3306 -d mariadb:latest``
