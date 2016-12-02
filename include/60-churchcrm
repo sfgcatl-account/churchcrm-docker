@@ -20,6 +20,14 @@ if [ ! -d /web/html/ChurchCRM ]; then
   cd ..
   rm -R *
   # setting up auto logging for now
-  cp -f /web/churchcrm/Config.php.example /web/html/Include/Config.php.example
+  cp -f /web/churchcrm/Config.php /web/html/Include/Config.php
+
+  sed -i 's/||DB_SERVER_NAME||/crm-mariadb/g' /web/html/Include/Config.php
+  sed -i 's/||DB_NAME||/'"$CRM_MARIADB_ENV_MARIADB_DATABASE"'/g' /web/html/Include/Config.php
+  sed -i 's/||DB_USER||/'"$CRM_MARIADB_ENV_MARIADB_USER"'/g' /web/html/Include/Config.php
+  sed -i 's/||DB_PASSWORD||/'"$CRM_MARIADB_ENV_MARIADB_PASSWORD"'/g' /web/html/Include/Config.php
+  sed -i 's/||URL||//g' /web/html/Include/Config.php
+  sed -i 's/||ROOT_PATH||//g' /web/html/Include/Config.php
+  
   chown -R apache.www-data /web/html
 fi
