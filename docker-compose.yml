@@ -1,6 +1,7 @@
 version: '2'
 services:
   churchcrm:
+    container_name: churchcrm
     build: .
     ports:
       - "80:80"
@@ -8,6 +9,7 @@ services:
     links:
       - crm-mariadb
   crm-mariadb:
+    container_name: crm-mariadb
     image: nimmis/alpine-mariadb
     volumes:
       - /var/lib/mysql

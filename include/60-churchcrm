@@ -19,15 +19,27 @@ if [ ! -d /web/html/ChurchCRM ]; then
   cp -Rp . /web/html
   cd ..
   rm -R *
-  # setting up auto logging for now
-  cp -f /web/churchcrm/Config.php /web/html/Include/Config.php
 
-  sed -i 's/||DB_SERVER_NAME||/crm-mariadb/g' /web/html/Include/Config.php
-  sed -i 's/||DB_NAME||/'"$CRM_MARIADB_ENV_MARIADB_DATABASE"'/g' /web/html/Include/Config.php
-  sed -i 's/||DB_USER||/'"$CRM_MARIADB_ENV_MARIADB_USER"'/g' /web/html/Include/Config.php
-  sed -i 's/||DB_PASSWORD||/'"$CRM_MARIADB_ENV_MARIADB_PASSWORD"'/g' /web/html/Include/Config.php
-  sed -i 's/||URL||//g' /web/html/Include/Config.php
-  sed -i 's/||ROOT_PATH||//g' /web/html/Include/Config.php
-  
+  # Testing to see if the ENV variables aren't empty. If so, then we will go through the normal setup.
+  if [ ! -z "$CRM_MARIADB_ENV_MARIADB_DATABASE" ]; then
+    # setting up auto logging for now
+    cp -f /web/churchcrm/Config.php.example /web/html/Include/Config.php
+
+    sed -i 's/||DB_SERVER_NAME||/crm-mariadb/g' /web/html/Include/Config.php
+    sed -i 's/||DB_NAME||/'"$CRM_MARIADB_ENV_MARIADB_DATABASE"'/g' /web/html/Include/Config.php
+    sed -i 's/||DB_USER||/'"$CRM_MARIADB_ENV_MARIADB_USER"'/g' /web/html/Include/Config.php
+    sed -i 's/||DB_PASSWORD||/'"$CRM_MARIADB_ENV_MARIADB_PASSWORD"'/g' /web/html/Include/Config.php
+    sed -i 's/||URL||//g' /web/html/Include/Config.php
+    sed -i 's/||ROOT_PATH||//g' /web/html/Include/Config.php
+
+  else
+    # setting up auto logging for now
+    cp -f /web/churchcrm/Config.php.example /web/html/Include/Config.php.example
+    sed -i 's/||DB_SERVER_NAME||/crm-mariadb/g' /web/html/Include/Config.php.example
+    sed -i 's/||URL||//g' /web/html/Include/Config.php.example
+    sed -i 's/||ROOT_PATH||//g' /web/html/Include/Config.php.example
+    
+  fi
+
   chown -R apache.www-data /web/html
 fi
