@@ -1,18 +1,21 @@
-# This is the Main docker-compose.yml file. You can build ChurchCRM with the docker-compose in the build directory. You can also startup ChurchCRM with the RUN Commands found in the README file.
+# This is the Build docker-compose.yml file. You can directly run ChurchCRM
+# in docker with the main docker-compose.yml file or through the RUN commands
+# explained in the README file
+
 version: '2'
 
 services:
 
   database: #Name of DB Host
     container_name: database
-    image: mariadb:10.1
+    image: nimmis/alpine-mariadb
     env_file:
-      - crm.env
+      - .env
 
   churchcrm:
     container_name: churchcrm
-    image: churchcrm/crm
+    build: ./build-files
     ports:
       - "80:80"
     env_file:
-      - crm.env
+      - .env

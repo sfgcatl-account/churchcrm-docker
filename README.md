@@ -1,31 +1,31 @@
 # Docker ChurchCRM
 
-This is the Docker Installation of ChurchCRM. This image is currently using the latest release of ChurchCRM. It is installed on Alpine Linux, Apache, PHP7 & is using MariaDB in a separate Alpine container.
+This is the Docker Installation of ChurchCRM. This image is the latest release ChurchCRM for Docker. It is installed on Alpine Linux, Apache, PHP7 & is using MariaDB in a separate Alpine container.
 
 ## How To Use
 
-There are two ways to get this up and running. Starting the container through **``docker run``** or building it with the **``docker-compose.yml``** file.
+To use, first you must fill in your desired database info and **passwords** into the **``.env``** file.
 
-### Starting the Container
+Once complete, you can Start ChurchCRM in Docker by using the Docker RUN command or by building and starting with docker-compose.
+
+###Starting the Container
 
 Example:
 
-You can start MariaDB first with the following command. Make sure to **change the passwords** to something more secure.
+You can start MariaDB first with the following command. Make sure to **change the passwords** in the ``.env`` file first.
 
-``docker run --name crm-mariadb -e MARIADB_ROOT_PASSWORD=my-secret-password -e MARIADB_DATABASE=churchcrm -e MARIADB_USER=churchcrm -e MARIADB_PASSWORD=my-secret-pw -d nimmis/alpine-mariadb``
+``docker run --name database --env-file .env -d nimmis/alpine-mariadb``
 
 Then start the ChurchCRM container:
 
-``docker run --name churchcrm -p 80:80 -p 443:443 --link crm-mariadb -d churchcrm/crm``
+``docker run --name churchcrm -p 80:80 --link database --env-file .env -d churchcrm/crm``
 
-<img src="https://github.com/ChurchCRM/Docker/blob/master/include/Installation.jpg" width="600">
+Visit your website and you will be up and running. Log in with the default username ``admin`` and password ``changeme`` and then change your admin password on the next screen.
 
 ### Building with Docker-Compose
 
-You can also download the Github repository and run ``docker-compose build`` and ``docker-compose up`` from the project folder. **Change Passwords, Ports, etc. in that file before building**.
+To build and run with Docker-Compose, you must have all of the files in the Github repo. Download the Github Docker repository and run ``docker-compose build`` and ``docker-compose up`` from the project folder. **Be SURE to Change Passwords in the .env file before starting your container**.
 
 ## Up and Running with ChurchCRM
 
-Once up and running, go to your website and fill in the database username and password that you set up in the commands above or in the docker-compose file. Use **``crm-mariadb``** as the **database host**. Once set up you can use the default username of ``admin`` and password of ``changeme`` to log in.
-
-<img src="https://github.com/ChurchCRM/Docker/blob/master/include/Login.jpg" width="400">
+<img src="https://github.com/ChurchCRM/Docker/blob/master/images/login.jpg" width="400">
