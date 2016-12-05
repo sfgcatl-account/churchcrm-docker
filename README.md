@@ -28,4 +28,4 @@ To build and run with Docker-Compose, you must have all of the files in the Gith
 
 ## Up and Running with ChurchCRM
 
-<img src="https://github.com/ChurchCRM/Docker/blob/master/images/login.jpg" width="400">
+[](https://github.com/ChurchCRM/Docker/blob/master/images/Login.jpg)
