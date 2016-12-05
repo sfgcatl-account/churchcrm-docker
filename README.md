@@ -12,7 +12,7 @@ Once complete, Start ChurchCRM in Docker by using the Docker RUN command from th
 
 For example, you can start MariaDB first with the following command. Make sure to **change the passwords** in the ``.env`` file first.
 
-``docker run --name database --env-file .env -d nimmis/alpine-mariadb``
+``docker run --name database --env-file .env -d jaskipper/alpine-mariadb``
 
 Then start the ChurchCRM container:
 
