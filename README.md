@@ -24,10 +24,6 @@ Visit your website and you will be up and running. Log in with the default usern
 
 To build and run with Docker-Compose, you must have all of the files in the Github repo. Download the Github Docker repository and run ``docker-compose build`` and ``docker-compose up`` from the project folder. **Be SURE to Change Passwords in the .env file before starting your container**.
 
-### Up and Running with ChurchCRM
-
-![Login Screen](https://github.com/ChurchCRM/Docker/images/Login.jpg)
-
 ## Environment variables used in the container
 
 It is recommended that you use the .env file to add your passwords, but you may also add those ENV's with the -e flag with ``docker run -e ...``.
