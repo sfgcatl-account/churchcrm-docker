@@ -4,15 +4,13 @@ This is the Docker Installation of ChurchCRM. This image is the latest release C
 
 ## How To Use
 
-To use, first fill in your desired database info and **passwords** into the **``.env``** file. *(Download that file in the main repository directory)*
+To use, first change your desired database info and **passwords** in the **``.env``** file. *(Download that file from the main ChurchCRM/Docker repository directory)*
 
 Once complete, Start ChurchCRM in Docker by using the Docker RUN command from the directory that your ``.env`` file resides or by building and starting with docker-compose.
 
 ###Starting with Docker Run
 
-Example:
-
-You can start MariaDB first with the following command. Make sure to **change the passwords** in the ``.env`` file first.
+For example, you can start MariaDB first with the following command. Make sure to **change the passwords** in the ``.env`` file first.
 
 ``docker run --name database --env-file .env -d nimmis/alpine-mariadb``
 

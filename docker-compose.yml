@@ -1,6 +1,6 @@
-# This is the Build docker-compose.yml file. You can directly run ChurchCRM
-# in docker with the main docker-compose.yml file or through the RUN commands
-# explained in the README file
+# This is the Build docker-compose.yml file. You can build and Run ChurchCRM
+# from this file by first filling in your password and db info in the .env
+# file and then running "docker-compose build", "docker-compose up" in terminal.
 
 version: '2'
 
