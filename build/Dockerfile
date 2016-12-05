@@ -47,10 +47,10 @@ RUN echo "@testing http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/
     rm -rf /var/cache/apk/* && \
     mkdir /web/churchcrm
 
-COPY include/httpd.conf /etc/apache2
-COPY include/60-churchcrm /etc/run_always
+COPY httpd.conf /etc/apache2
+COPY 60-churchcrm /etc/run_always
 
-RUN chmod 755 /etc/run_always/60-churchcrm
+RUN chmod +x /etc/run_always/60-churchcrm
 
 # Enable Terminal
 ENV TERM xterm
