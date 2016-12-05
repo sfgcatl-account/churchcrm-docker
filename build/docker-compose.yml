@@ -6,9 +6,11 @@ services:
 
   database: #Name of DB Host
     container_name: database
-    image: mariadb:10.1
+    image: nimmis/alpine-mariadb
     env_file:
-     - crm.env
+      - crm.env
+    volumes: # This allows data to persist even if you destroy the container
+      - ./var/lib/mysql:/var/lib
 
   churchcrm:
     container_name: churchcrm
@@ -17,3 +19,5 @@ services:
       - "80:80"
     env_file:
       - crm.env
+    volumes: #
+      - ./web/html:/web/html
