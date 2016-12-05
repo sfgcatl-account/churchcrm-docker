@@ -4,11 +4,11 @@ This is the Docker Installation of ChurchCRM. This image is the latest release C
 
 ## How To Use
 
-To use, first you must fill in your desired database info and **passwords** into the **``.env``** file.
+To use, first fill in your desired database info and **passwords** into the **``.env``** file. *(Download that file in the main repository directory)*
 
-Once complete, you can Start ChurchCRM in Docker by using the Docker RUN command or by building and starting with docker-compose.
+Once complete, Start ChurchCRM in Docker by using the Docker RUN command from the directory that your ``.env`` file resides or by building and starting with docker-compose.
 
-###Starting the Container
+###Starting with Docker Run
 
 Example:
 
@@ -22,10 +22,10 @@ Then start the ChurchCRM container:
 
 Visit your website and you will be up and running. Log in with the default username ``admin`` and password ``changeme`` and then change your admin password on the next screen.
 
-### Building with Docker-Compose
+### Building and Starting with Docker-Compose
 
 To build and run with Docker-Compose, you must have all of the files in the Github repo. Download the Github Docker repository and run ``docker-compose build`` and ``docker-compose up`` from the project folder. **Be SURE to Change Passwords in the .env file before starting your container**.
 
 ## Up and Running with ChurchCRM
 
-[](https://github.com/ChurchCRM/Docker/blob/master/images/Login.jpg)
+![Login Screen](https://github.com/ChurchCRM/Docker/images/Login.jpg)
