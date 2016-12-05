@@ -5,16 +5,15 @@ services:
     build: .
     ports:
       - "80:80"
-      - "443:443"
-    links:
-      - crm-mariadb
-  crm-mariadb:
-    container_name: crm-mariadb
-    image: nimmis/alpine-mariadb
-    volumes:
-      - /var/lib/mysql
+    links: 
+      - mysql
     environment:
-      MARIADB_ROOT_PASSWORD: my-secret-pw
-      MARIADB_DATABASE: churchcrm
-      MARIADB_USER: churchcrm
-      MARIADB_PASSWORD: my-secret-pw
+      CHURCHCRM_DB_HOST: mysql
+      CHURCHCRM_DB_USER: churchcrm
+      CHURCHCRM_DB_PASSWORD: my-secret-pw
+      CHURCHCRM_DB_NAME: churchcrm
+  mysql:
+    container_name: mysql
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret-pw

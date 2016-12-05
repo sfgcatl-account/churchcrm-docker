@@ -49,10 +49,14 @@ RUN echo "@testing http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/
 
 COPY include/httpd.conf /etc/apache2
 COPY include/60-churchcrm /etc/run_always
-# Auto-logging for now
-COPY include/Config.php.example /web/churchcrm/Config.php
 
 RUN chmod 755 /etc/run_always/60-churchcrm
 
 # Enable Terminal
 ENV TERM xterm
+
+COPY include/docker-entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
+# ENTRYPOINT resets CMD
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
