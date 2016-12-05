@@ -1,7 +1,7 @@
 #!/bin/bash
+set +e
 
 # populate /web/html if empty
-
 if [ ! -d /web/html ]; then
   mkdir /web/html
   chown -R apache.www-data /web/html
@@ -9,18 +9,15 @@ fi
 
 if [ ! -f /web/html/Include/Config.php ]; then
   cd /tmp
-  rm -R *
   # Latest Release Including RC
   #curl -sOL "$(jq -r ".[0] | .assets[] | .browser_download_url" < <( curl -s "https://api.github.com/repos/churchCRM/CRM/releases" ))"
   # Latest Full Release
   curl -sOL "$(jq -r ".assets[] | .browser_download_url" < <( curl -s "https://api.github.com/repos/churchCRM/CRM/releases/latest" ))"
   unzip -q *.zip
-  cd churchcrm
-  cp -Rp . /web/html
-  cd ..
-  rm -R *
+  cp -Rp ./churchcrm/* /web/html
+  rm -R churchcrm
 
-  # setting up auto logging for now
+  # Since we've already set these passwords in the env file, lets just go ahead and put them in the database and skip the setup page.
   cp /web/html/Include/Config.php.example /web/html/Include/Config.php
 
   sed -i "s/||DB_SERVER_NAME||/$MYSQL_DB_HOST/g" /web/html/Include/Config.php
