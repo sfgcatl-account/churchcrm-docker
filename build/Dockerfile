@@ -54,9 +54,3 @@ RUN chmod 755 /etc/run_always/60-churchcrm
 
 # Enable Terminal
 ENV TERM xterm
-
-COPY include/docker-entrypoint.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh
-
-# ENTRYPOINT resets CMD
-ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
