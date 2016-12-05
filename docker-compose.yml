@@ -8,7 +8,7 @@ services:
 
   database: #Name of DB Host
     container_name: database
-    image: nimmis/alpine-mariadb
+    image: jaskipper/alpine-mariadb
     env_file:
       - .env
 
