@@ -9,11 +9,10 @@ RUN apk update && apk upgrade && \
 RUN apk add --no-cache \
             jq \
             php7-session@community \
-            php7-pdo@community \
             php7-xml@community \
             php7-exif@community \
-            php7-pdo_mysql@community \
-            php7-gettext@community
+            php7-gettext@community \
+            php7-iconv@community
 
 RUN mkdir /web/churchcrm
 
