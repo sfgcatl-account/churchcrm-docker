@@ -5,9 +5,6 @@ RUN apk update
 RUN apk upgrade --repository http://dl-4.alpinelinux.org/alpine/edge/community \
                 --repository https://nl.alpinelinux.org/alpine/edge/main
 
-    # Make info file about this build
-    printf "Build of skipper/alpine-apache, date: %s\n"  `date -u +"%Y-%m-%dT%H:%M:%SZ"` >> /etc/BUILD
-
 RUN apk add --no-cache \
             jq \
             php7-session@community \
