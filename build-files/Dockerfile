@@ -1,19 +1,37 @@
-FROM jaskipper/alpine-apache-php7
-MAINTAINER ChurchCRM
+FROM php:8-apache
 
-RUN apk update
-RUN apk upgrade --repository http://dl-4.alpinelinux.org/alpine/edge/community \
-                --repository https://nl.alpinelinux.org/alpine/edge/main
+EXPOSE 80
 
-RUN apk add --no-cache \
-            jq \
-            php7-session@community \
-            php7-pdo@community \
-            php7-xml@community \
-            php7-exif@community \
-            php7-pdo_mysql@community \
-            php7-gettext@community \
-            php7-iconv@community
+RUN apt-get update && \
+    apt-get install -y \
+        libxml2-dev \
+        gettext \
+        libpng-dev \
+        libzip-dev \
+        libfreetype6-dev \
+        libmcrypt-dev \
+        libpng-dev \
+        libjpeg-dev \
+        libpng-dev \
+        npm \
+        git
+
+RUN docker-php-ext-install -j$(nproc) xml exif pdo_mysql gettext iconv mysqli zip
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg
+
+RUN    docker-php-ext-install -j$(nproc) gd
+
+COPY ./apache/default.conf /etc/apache2/apache2.conf
+
+RUN a2enmod  rewrite
+
+# Configure PHP
+RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+
+RUN sed -i 's/^upload_max_filesize.*$/upload_max_filesize = 2G/g' $PHP_INI_DIR/php.ini
+RUN sed -i 's/^post_max_size.*$/post_max_size = 2G/g' $PHP_INI_DIR/php.ini
+RUN sed -i 's/^memory_limit.*$/memory_limit = 2G/g' $PHP_INI_DIR/php.ini
+RUN sed -i 's/^max_execution_time.*$/max_execution_time = 120/g' $PHP_INI_DIR/php.ini
 
 RUN mkdir /web/churchcrm
 

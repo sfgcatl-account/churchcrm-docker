@@ -9,9 +9,6 @@ fi
 
 if [ ! -f /web/html/Include/Config.php ]; then
   cd /tmp
-  # Latest Release Including RC
-  #curl -sOL "$(jq -r ".[0] | .assets[] | .browser_download_url" < <( curl -s "https://api.github.com/repos/churchCRM/CRM/releases" ))"
-  # Latest Full Release
   curl -sOL "$(jq -r ".assets[] | .browser_download_url" < <( curl -s "https://api.github.com/repos/churchCRM/CRM/releases/latest" ))"
   unzip -q *.zip
   cp -Rp ./churchcrm/. /web/html
