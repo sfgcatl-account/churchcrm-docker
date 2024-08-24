@@ -33,7 +33,7 @@ RUN sed -i 's/^post_max_size.*$/post_max_size = 2G/g' $PHP_INI_DIR/php.ini
 RUN sed -i 's/^memory_limit.*$/memory_limit = 2G/g' $PHP_INI_DIR/php.ini
 RUN sed -i 's/^max_execution_time.*$/max_execution_time = 120/g' $PHP_INI_DIR/php.ini
 
-RUN mkdir /web/churchcrm
+RUN mkdir -p /web/churchcrm
 
 COPY httpd.conf /etc/apache2
 COPY 60-churchcrm /etc/run_always
