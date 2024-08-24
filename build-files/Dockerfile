@@ -4,7 +4,6 @@ EXPOSE 80
 
 RUN apt-get update && \
     apt-get install -y \
-        apache2 \
         libxml2-dev \
         gettext \
         libpng-dev \
