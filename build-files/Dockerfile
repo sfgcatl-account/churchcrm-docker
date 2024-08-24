@@ -36,7 +36,7 @@ RUN sed -i 's/^max_execution_time.*$/max_execution_time = 120/g' $PHP_INI_DIR/ph
 RUN mkdir -p /web/churchcrm
 
 COPY httpd.conf /etc/apache2
-COPY 60-churchcrm /etc/run_always
+COPY 60-churchcrm /etc/run_always/60-churchcrm
 
 RUN chmod +x ./etc/run_always/60-churchcrm
 
