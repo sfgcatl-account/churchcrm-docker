@@ -21,7 +21,7 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 
 RUN    docker-php-ext-install -j$(nproc) gd
 
-COPY ./apache/default.conf /etc/apache2/apache2.conf
+# COPY ./apache/default.conf /etc/apache2/apache2.conf
 
 RUN a2enmod  rewrite
 
