@@ -38,7 +38,7 @@ RUN mkdir -p /web/churchcrm
 COPY httpd.conf /etc/apache2
 COPY 60-churchcrm /etc/run_always
 
-RUN chmod +x /etc/run_always/60-churchcrm
+RUN chmod +x ./etc/run_always/60-churchcrm
 
 # Enable Terminal
 ENV TERM xterm
