@@ -1,6 +1,6 @@
 FROM php:8-apache
 
-EXPOSE 80
+EXPOSE 3000
 
 RUN apt-get update && \
     apt-get install -y \
